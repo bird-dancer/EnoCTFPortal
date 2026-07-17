@@ -5,6 +5,7 @@ if [ -z "${BASE_URL}" ]; then
     echo "BASE_URL is not set!"
 fi
 
+CTFJSON_API_URL="${BASE_URL}/api/admin/ctfjson"
 CHECKIN_API_URL="${BASE_URL}/api/admin/checkinteam"
 BOOT_API_URL="${BASE_URL}/api/admin/bootvm"
 
@@ -14,6 +15,11 @@ if [ -z "${ADMIN_SECRET}" ]; then
     echo "ADMIN_SECRET is not set!"
 fi
 
+
+CtfJson () {
+    curl --get "$CTFJSON_API_URL" \
+        --data-urlencode "adminSecret=${ADMIN_SECRET}"
+}
 
 CheckInTeam () {
     if [[ "$#" -lt 1 ]]; then
