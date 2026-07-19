@@ -2,8 +2,6 @@
 
 ## docker-compose
 ```yaml
-version: '3'
-
 services:
   enolandingpage:
     build: .
